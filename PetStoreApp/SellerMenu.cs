@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -95,8 +96,8 @@ namespace PetStoreApp
         private async Task AddProductAsync(int article, string name, string category, string brand, string animal, string description, string composition, string unit, decimal price, int quantity)
         {
             string insertSql = @"
-        INSERT INTO Товары (Артикул, Название, Категория, Бренд, Животное, Описание, Состав, Единица, Стоимость, Количество_на_складе) 
-        VALUES (@article, @name, @category, @brand, @animal, @description, @composition, @unit, @price, @quantity)";
+            INSERT INTO Товары (Артикул, Название, Категория, Бренд, Животное, Описание, Состав, Единица, Стоимость, Количество_на_складе) 
+            VALUES (@article, @name, @category, @brand, @animal, @description, @composition, @unit, @price, @quantity)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -118,7 +119,6 @@ namespace PetStoreApp
                 }
             }
         }
-
 
         // button2 — удаление выбранной строки
         private async void button2_Click(object sender, EventArgs e)
@@ -152,7 +152,6 @@ namespace PetStoreApp
             }
         }
 
-
         // button3 — сохранение изменений в базе данных
         private async void button3_Click(object sender, EventArgs e)
         {
@@ -176,28 +175,107 @@ namespace PetStoreApp
         {
             // Здесь можно добавить необходимую логику обработки нажатий на ячейки DataGridView.
         }
-    }
 
-    // Класс для запроса ввода данных
-    public static class Prompt
-    {
-        public static string ShowDialog(string text, string caption)
+        private async void button4_Click(object sender, EventArgs e)
         {
-            Form prompt = new Form()
+            // Запрашиваем новые данные у пользователя для каждого параметра
+            string newName = Prompt.ShowDialog("Введите название товара:", "Обновление товара");
+            if (string.IsNullOrEmpty(newName)) return;
+
+            string newCategory = Prompt.ShowDialog("Введите категорию товара:", "Обновление товара");
+            if (string.IsNullOrEmpty(newCategory)) return;
+
+            string newBrand = Prompt.ShowDialog("Введите бренд товара:", "Обновление товара");
+            if (string.IsNullOrEmpty(newBrand)) return;
+
+            string newAnimal = Prompt.ShowDialog("Введите животное:", "Обновление товара");
+            if (string.IsNullOrEmpty(newAnimal)) return;
+
+            string newDescription = Prompt.ShowDialog("Введите описание товара:", "Обновление товара");
+            if (string.IsNullOrEmpty(newDescription)) return;
+
+            string newComposition = Prompt.ShowDialog("Введите состав товара:", "Обновление товара");
+            if (string.IsNullOrEmpty(newComposition)) return;
+
+            string newUnit = Prompt.ShowDialog("Введите единицу измерения:", "Обновление товара");
+            if (string.IsNullOrEmpty(newUnit)) return;
+
+            decimal newPrice;
+            if (!decimal.TryParse(Prompt.ShowDialog("Введите стоимость товара:", "Обновление товара"), out newPrice))
             {
-                Width = 400,
-                Height = 200,
-                Text = caption
-            };
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox inputBox = new TextBox() { Left = 50, Top = 50, Width = 300 };
-            Button confirmation = new Button() { Text = "ОК", Left = 250, Width = 100, Top = 100 };
-            confirmation.Click += (sender, e) => { prompt.Close(); };
-            prompt.Controls.Add(confirmation);
-            prompt.Controls.Add(inputBox);
-            prompt.Controls.Add(textLabel);
-            prompt.ShowDialog();
-            return inputBox.Text;
+                MessageBox.Show("Некорректная стоимость.");
+                return;
+            }
+
+            int newQuantity;
+            if (!int.TryParse(Prompt.ShowDialog("Введите количество на складе:", "Обновление товара"), out newQuantity))
+            {
+                MessageBox.Show("Некорректное количество.");
+                return;
+            }
+
+            // SQL-запрос для обновления всех параметров, кроме артикула
+            string updateSql = @"
+            UPDATE Товары 
+            SET Название = @newName, Категория = @newCategory, Бренд = @newBrand, 
+                Животное = @newAnimal, Описание = @newDescription, Состав = @newComposition, 
+                Единица = @newUnit, Стоимость = @newPrice, Количество_на_складе = @newQuantity 
+            WHERE Артикул = @article";
+
+            // Получаем артикул выбранного товара
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int article = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand updateCommand = new SqlCommand(updateSql, connection))
+                    {
+                        // Добавляем параметры к SQL-запросу
+                        updateCommand.Parameters.AddWithValue("@newName", newName);
+                        updateCommand.Parameters.AddWithValue("@newCategory", newCategory);
+                        updateCommand.Parameters.AddWithValue("@newBrand", newBrand);
+                        updateCommand.Parameters.AddWithValue("@newAnimal", newAnimal);
+                        updateCommand.Parameters.AddWithValue("@newDescription", newDescription);
+                        updateCommand.Parameters.AddWithValue("@newComposition", newComposition);
+                        updateCommand.Parameters.AddWithValue("@newUnit", newUnit);
+                        updateCommand.Parameters.AddWithValue("@newPrice", newPrice);
+                        updateCommand.Parameters.AddWithValue("@newQuantity", newQuantity);
+                        updateCommand.Parameters.AddWithValue("@article", article);
+                        await updateCommand.ExecuteNonQueryAsync();
+                    }
+                }
+
+                // Обновляем данные после изменения
+                await LoadDataAsync();
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите товар для обновления.");
+            }
+        }
+
+            public class Prompt : Form
+        {
+            public static string ShowDialog(string text, string caption)
+            {
+                Form prompt = new Form()
+                {
+                    Width = 500,
+                    Height = 300,
+                    Text = caption
+                };
+                Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
+                TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+                Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70 };
+                confirmation.Click += (sender, e) => { prompt.Close(); };
+                prompt.Controls.Add(confirmation);
+                prompt.Controls.Add(textBox);
+                prompt.Controls.Add(textLabel);
+                prompt.ShowDialog();
+                return textBox.Text;
+            }
         }
     }
 }
