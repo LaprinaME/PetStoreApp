@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.petStoreDataSet = new PetStoreApp.PetStoreDataSet();
-            this.товарыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.товарыTableAdapter = new PetStoreApp.PetStoreDataSetTableAdapters.ТоварыTableAdapter();
-            this.petStoreDataSet1 = new PetStoreApp.PetStoreDataSet1();
-            this.товарыBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.товарыTableAdapter1 = new PetStoreApp.PetStoreDataSet1TableAdapters.ТоварыTableAdapter();
             this.артикулDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.категорияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +42,19 @@
             this.стоимостьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.количествонаскладеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Единица = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.товарыBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.petStoreDataSet1 = new PetStoreApp.PetStoreDataSet1();
+            this.petStoreDataSet = new PetStoreApp.PetStoreDataSet();
+            this.товарыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.товарыTableAdapter = new PetStoreApp.PetStoreDataSetTableAdapters.ТоварыTableAdapter();
+            this.товарыTableAdapter1 = new PetStoreApp.PetStoreDataSet1TableAdapters.ТоварыTableAdapter();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -91,34 +91,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1428, 150);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // petStoreDataSet
-            // 
-            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
-            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // товарыBindingSource
-            // 
-            this.товарыBindingSource.DataMember = "Товары";
-            this.товарыBindingSource.DataSource = this.petStoreDataSet;
-            // 
-            // товарыTableAdapter
-            // 
-            this.товарыTableAdapter.ClearBeforeFill = true;
-            // 
-            // petStoreDataSet1
-            // 
-            this.petStoreDataSet1.DataSetName = "PetStoreDataSet1";
-            this.petStoreDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // товарыBindingSource1
-            // 
-            this.товарыBindingSource1.DataMember = "Товары";
-            this.товарыBindingSource1.DataSource = this.petStoreDataSet1;
-            // 
-            // товарыTableAdapter1
-            // 
-            this.товарыTableAdapter1.ClearBeforeFill = true;
             // 
             // артикулDataGridViewTextBoxColumn
             // 
@@ -208,6 +180,34 @@
             this.Единица.Name = "Единица";
             this.Единица.Width = 125;
             // 
+            // товарыBindingSource1
+            // 
+            this.товарыBindingSource1.DataMember = "Товары";
+            this.товарыBindingSource1.DataSource = this.petStoreDataSet1;
+            // 
+            // petStoreDataSet1
+            // 
+            this.petStoreDataSet1.DataSetName = "PetStoreDataSet1";
+            this.petStoreDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // petStoreDataSet
+            // 
+            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
+            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // товарыBindingSource
+            // 
+            this.товарыBindingSource.DataMember = "Товары";
+            this.товарыBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // товарыTableAdapter
+            // 
+            this.товарыTableAdapter.ClearBeforeFill = true;
+            // 
+            // товарыTableAdapter1
+            // 
+            this.товарыTableAdapter1.ClearBeforeFill = true;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(448, 291);
@@ -241,10 +241,10 @@
             this.Text = "SellerMenu";
             this.Load += new System.EventHandler(this.SellerMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарыBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
