@@ -11,8 +11,11 @@ namespace PetStoreApp
         {
             InitializeComponent();
             this.Text = "Вход в систему";
-            this.Size = new Size(300, 200);
+            this.Size = new Size(400, 250);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog; // Фиксированный размер
+            this.MaximizeBox = false; // Убираем кнопку максимизации
         }
+
 
         private void LoginForm_Load(object sender, EventArgs e)
         {

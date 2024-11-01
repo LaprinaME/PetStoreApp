@@ -46,7 +46,18 @@ namespace PetStoreApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Этот метод останется пустым, если дополнительных действий при загрузке формы не требуется
+            // Центрируем button1
+            button1.Location = new Point(
+                (this.ClientSize.Width - button1.Width) / 2,
+                (this.ClientSize.Height - button1.Height) / 2 - 30 // -30 для сдвига чуть выше
+            );
+
+            // Центрируем button2 под button1 с небольшим отступом
+            button2.Location = new Point(
+                (this.ClientSize.Width - button2.Width) / 2,
+                (this.ClientSize.Height - button2.Height) / 2 + 30 // +30 для сдвига чуть ниже
+            );
         }
+
     }
 }
