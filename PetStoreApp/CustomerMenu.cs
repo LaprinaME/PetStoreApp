@@ -12,9 +12,16 @@ namespace PetStoreApp
 {
     public partial class CustomerMenu : Form
     {
+        public static CustomerMenu Instance { get; } = new CustomerMenu();
+
         public CustomerMenu()
         {
             InitializeComponent();
+        }
+
+        private void CustomerMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

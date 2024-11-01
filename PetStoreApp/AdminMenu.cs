@@ -12,6 +12,8 @@ namespace PetStoreApp
 {
     public partial class AdminMenu : Form
     {
+        public static AdminMenu Instance { get; } = new AdminMenu();
+
         public AdminMenu()
         {
             InitializeComponent();

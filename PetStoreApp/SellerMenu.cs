@@ -9,6 +9,7 @@ namespace PetStoreApp
 {
     public partial class SellerMenu : Form
     {
+        public static SellerMenu Instance { get; } = new SellerMenu();
         private DataSet ds;
         private SqlDataAdapter adapter;
         private string connectionString = @"Data Source=DESKTOP-DFJ77GS;Initial Catalog=PetStore;Integrated Security=True;TrustServerCertificate=True";
