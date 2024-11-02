@@ -35,16 +35,21 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.petStoreDataSet4 = new PetStoreApp.PetStoreDataSet4();
-            this.поставкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.поставкиTableAdapter = new PetStoreApp.PetStoreDataSet4TableAdapters.ПоставкиTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.поставщикidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датапоставкиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.номернакладнойDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.поставкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.petStoreDataSet4 = new PetStoreApp.PetStoreDataSet4();
+            this.поставкиTableAdapter = new PetStoreApp.PetStoreDataSet4TableAdapters.ПоставкиTableAdapter();
+            this.petStoreDataSet5 = new PetStoreApp.PetStoreDataSet5();
+            this.клиентыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.клиентыTableAdapter = new PetStoreApp.PetStoreDataSet5TableAdapters.КлиентыTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.поставкиBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.клиентыBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -113,20 +118,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(559, 150);
             this.dataGridView1.TabIndex = 5;
             // 
-            // petStoreDataSet4
-            // 
-            this.petStoreDataSet4.DataSetName = "PetStoreDataSet4";
-            this.petStoreDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // поставкиBindingSource
-            // 
-            this.поставкиBindingSource.DataMember = "Поставки";
-            this.поставкиBindingSource.DataSource = this.petStoreDataSet4;
-            // 
-            // поставкиTableAdapter
-            // 
-            this.поставкиTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -160,11 +151,39 @@
             this.номернакладнойDataGridViewTextBoxColumn.Name = "номернакладнойDataGridViewTextBoxColumn";
             this.номернакладнойDataGridViewTextBoxColumn.Width = 125;
             // 
+            // поставкиBindingSource
+            // 
+            this.поставкиBindingSource.DataMember = "Поставки";
+            this.поставкиBindingSource.DataSource = this.petStoreDataSet4;
+            // 
+            // petStoreDataSet4
+            // 
+            this.petStoreDataSet4.DataSetName = "PetStoreDataSet4";
+            this.petStoreDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // поставкиTableAdapter
+            // 
+            this.поставкиTableAdapter.ClearBeforeFill = true;
+            // 
+            // petStoreDataSet5
+            // 
+            this.petStoreDataSet5.DataSetName = "PetStoreDataSet5";
+            this.petStoreDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // клиентыBindingSource
+            // 
+            this.клиентыBindingSource.DataMember = "Клиенты";
+            this.клиентыBindingSource.DataSource = this.petStoreDataSet5;
+            // 
+            // клиентыTableAdapter
+            // 
+            this.клиентыTableAdapter.ClearBeforeFill = true;
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(691, 397);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
@@ -175,8 +194,10 @@
             this.Text = "AdminMenu";
             this.Load += new System.EventHandler(this.AdminMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.поставкиBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.клиентыBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +218,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn поставщикidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датапоставкиDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn номернакладнойDataGridViewTextBoxColumn;
+        private PetStoreDataSet5 petStoreDataSet5;
+        private System.Windows.Forms.BindingSource клиентыBindingSource;
+        private PetStoreDataSet5TableAdapters.КлиентыTableAdapter клиентыTableAdapter;
     }
 }

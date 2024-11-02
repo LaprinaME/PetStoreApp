@@ -50,16 +50,19 @@ namespace PetStoreApp
             string login = textBox1.Text;
             string password = textBox2.Text;
             string roleCode = textBox3.Text;
+            string fullName = textBox4.Text;
+            string phone = textBox5.Text;
+            string address = textBox6.Text;
+            string favorites = textBox7.Text;
 
-            // Подключение к базе данных
             string connectionString = @"Data Source=DESKTOP-DFJ77GS;Initial Catalog=PetStore;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    // Проверка существования логина
-                    string checkQuery = "SELECT COUNT(*) FROM Аккаунты WHERE Логин = @login";
+
+                    string checkQuery = "SELECT COUNT(*) FROM Клиенты WHERE Логин = @login";
                     using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
                         checkCommand.Parameters.AddWithValue("@login", login);
@@ -71,25 +74,29 @@ namespace PetStoreApp
                         }
                     }
 
-                    // Вставка нового аккаунта
-                    string insertQuery = "INSERT INTO Аккаунты (Логин, Пароль, Код_роли) VALUES (@login, @password, @roleCode)";
+                    string insertQuery = @"INSERT INTO Клиенты 
+                                   (ФИО, Телефон, Адрес, Логин, Пароль, Код_роли, Избранные_товары) 
+                                   VALUES (@fullName, @phone, @address, @login, @password, @roleCode, @favorites)";
                     using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
                     {
+                        insertCommand.Parameters.AddWithValue("@fullName", fullName);
+                        insertCommand.Parameters.AddWithValue("@phone", phone);
+                        insertCommand.Parameters.AddWithValue("@address", address);
                         insertCommand.Parameters.AddWithValue("@login", login);
                         insertCommand.Parameters.AddWithValue("@password", password);
                         insertCommand.Parameters.AddWithValue("@roleCode", roleCode);
+                        insertCommand.Parameters.AddWithValue("@favorites", favorites);
 
                         int result = insertCommand.ExecuteNonQuery();
                         if (result > 0)
                         {
                             MessageBox.Show("Регистрация успешна", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Переход на соответствующую форму в зависимости от кода роли
                             Form nextForm = GetNextForm(roleCode);
                             if (nextForm != null)
                             {
                                 nextForm.Show();
-                                this.Hide(); // Скрыть текущую форму
+                                this.Hide();
                             }
                         }
                         else
@@ -104,6 +111,7 @@ namespace PetStoreApp
                 }
             }
         }
+
 
         private Form GetNextForm(string roleCode)
         {
@@ -124,6 +132,26 @@ namespace PetStoreApp
         private void label1_Click(object sender, EventArgs e)
         {
             // Логика обработки, если нужно
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

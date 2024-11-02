@@ -201,6 +201,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PetStoreDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PetStoreDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterForm.cs">
@@ -297,6 +302,17 @@
     </None>
     <None Include="PetStoreDataSet4.xss">
       <DependentUpon>PetStoreDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet5.xsc">
+      <DependentUpon>PetStoreDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet5.xss">
+      <DependentUpon>PetStoreDataSet5.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

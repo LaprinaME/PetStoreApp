@@ -56,7 +56,7 @@ namespace PetStoreApp
                 try
                 {
                     connection.Open();
-                    string query = "SELECT Код_роли FROM Аккаунты WHERE Логин = @login AND Пароль = @password";
+                    string query = "SELECT Код_роли FROM Клиенты WHERE Логин = @login AND Пароль = @password";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@login", login);
@@ -85,6 +85,7 @@ namespace PetStoreApp
                 }
             }
         }
+
 
         private Form GetNextFormByRole(string roleCode)
         {

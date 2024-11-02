@@ -21,6 +21,8 @@ namespace PetStoreApp
 
         private async void AdminMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'petStoreDataSet5.Клиенты' table. You can move, or remove it, as needed.
+            this.клиентыTableAdapter.Fill(this.petStoreDataSet5.Клиенты);
             await LoadDataAsync(); // Загрузка данных при запуске формы
         }
 
@@ -200,6 +202,6 @@ namespace PetStoreApp
                 return textBox.Text;
             }
         }
-        
+
     }
 }
