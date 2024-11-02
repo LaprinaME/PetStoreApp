@@ -6,7 +6,21 @@ namespace PetStoreApp
 {
     public partial class RegisterForm : Form
     {
-        public RegisterForm()
+        private static RegisterForm instance;
+
+        public static RegisterForm Instance
+        {
+            get
+            {
+                if (instance == null || instance.IsDisposed)
+                {
+                    instance = new RegisterForm();
+                }
+                return instance;
+            }
+        }
+
+        private RegisterForm()
         {
             InitializeComponent();
         }
@@ -71,26 +85,12 @@ namespace PetStoreApp
                             MessageBox.Show("Регистрация успешна", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Переход на соответствующую форму в зависимости от кода роли
-                            Form nextForm;
-
-                            switch (roleCode)
+                            Form nextForm = GetNextForm(roleCode);
+                            if (nextForm != null)
                             {
-                                case "1": // Код для покупателя
-                                    nextForm = new CustomerMenu();
-                                    break;
-                                case "2": // Код для администратора
-                                    nextForm = new AdminMenu();
-                                    break;
-                                case "3": // Код для продавца
-                                    nextForm = new SellerMenu();
-                                    break;
-                                default:
-                                    MessageBox.Show("Неизвестный код роли", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
+                                nextForm.Show();
+                                this.Hide(); // Скрыть текущую форму
                             }
-
-                            nextForm.Show();
-                            this.Hide(); // Скрыть текущую форму
                         }
                         else
                         {
@@ -105,9 +105,25 @@ namespace PetStoreApp
             }
         }
 
+        private Form GetNextForm(string roleCode)
+        {
+            switch (roleCode)
+            {
+                case "1": // Код для покупателя
+                    return new CustomerMenu();
+                case "2": // Код для администратора
+                    return new CustomerMenu();
+                case "3": // Код для продавца
+                    return new SellerMenu();
+                default:
+                    MessageBox.Show("Неизвестный код роли", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
-
+            // Логика обработки, если нужно
         }
     }
 }

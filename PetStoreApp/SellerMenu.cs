@@ -7,12 +7,13 @@ using System.Windows.Forms;
 
 namespace PetStoreApp
 {
+
     public partial class SellerMenu : Form
     {
         public static SellerMenu Instance { get; } = new SellerMenu();
         private DataSet ds;
         private SqlDataAdapter adapter;
-        private string connectionString = @"Data Source=DESKTOP-DFJ77GS;Initial Catalog=PetStore;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionString = @"Data Source=DESKTOP-DFJ77GS;Initial Catalog=PetStore;Integrated Security=True;MultipleActiveResultSets=True";
         private string sql = "SELECT * FROM Товары";
 
         public SellerMenu()
@@ -44,7 +45,7 @@ namespace PetStoreApp
         private async void button1_Click(object sender, EventArgs e)
         {
             // Ввод данных о новом товаре
-            string articleInput = Prompt.ShowDialog("Введите артикул товара:", "Добавление товара");
+            string articleInput = Prompt.ShowDialog("Артикул товара:", "Добавление товара");
             if (string.IsNullOrEmpty(articleInput)) return;
 
             int article;
@@ -54,36 +55,36 @@ namespace PetStoreApp
                 return;
             }
 
-            string name = Prompt.ShowDialog("Введите название товара:", "Добавление товара");
+            string name = Prompt.ShowDialog("Название товара:", "Добавление товара");
             if (string.IsNullOrEmpty(name)) return;
 
-            string category = Prompt.ShowDialog("Введите категорию товара:", "Добавление товара");
+            string category = Prompt.ShowDialog("Категория товара:", "Добавление товара");
             if (string.IsNullOrEmpty(category)) return;
 
-            string brand = Prompt.ShowDialog("Введите бренд товара:", "Добавление товара");
+            string brand = Prompt.ShowDialog("Бренд товара:", "Добавление товара");
             if (string.IsNullOrEmpty(brand)) return;
 
-            string animal = Prompt.ShowDialog("Введите тип животного:", "Добавление товара");
+            string animal = Prompt.ShowDialog("Тип животного:", "Добавление товара");
             if (string.IsNullOrEmpty(animal)) return;
 
-            string description = Prompt.ShowDialog("Введите описание товара:", "Добавление товара");
+            string description = Prompt.ShowDialog("Описание товара:", "Добавление товара");
             if (string.IsNullOrEmpty(description)) return;
 
-            string composition = Prompt.ShowDialog("Введите состав товара:", "Добавление товара");
+            string composition = Prompt.ShowDialog("Состав товара:", "Добавление товара");
             if (string.IsNullOrEmpty(composition)) return;
 
-            string unit = Prompt.ShowDialog("Введите единицу измерения:", "Добавление товара");
+            string unit = Prompt.ShowDialog("Единица измерения:", "Добавление товара");
             if (string.IsNullOrEmpty(unit)) return;
 
             decimal price;
-            if (!decimal.TryParse(Prompt.ShowDialog("Введите стоимость товара:", "Добавление товара"), out price))
+            if (!decimal.TryParse(Prompt.ShowDialog("Стоимость товара:", "Добавление товара"), out price))
             {
                 MessageBox.Show("Некорректная стоимость.");
                 return;
             }
 
             int quantity;
-            if (!int.TryParse(Prompt.ShowDialog("Введите количество на складе:", "Добавление товара"), out quantity))
+            if (!int.TryParse(Prompt.ShowDialog("Количество на складе:", "Добавление товара"), out quantity))
             {
                 MessageBox.Show("Некорректное количество.");
                 return;
@@ -180,36 +181,36 @@ namespace PetStoreApp
         private async void button4_Click(object sender, EventArgs e)
         {
             // Запрашиваем новые данные у пользователя для каждого параметра
-            string newName = Prompt.ShowDialog("Введите название товара:", "Обновление товара");
+            string newName = Prompt.ShowDialog("Название товара:", "Обновление товара");
             if (string.IsNullOrEmpty(newName)) return;
 
-            string newCategory = Prompt.ShowDialog("Введите категорию товара:", "Обновление товара");
+            string newCategory = Prompt.ShowDialog("Категория товара:", "Обновление товара");
             if (string.IsNullOrEmpty(newCategory)) return;
 
-            string newBrand = Prompt.ShowDialog("Введите бренд товара:", "Обновление товара");
+            string newBrand = Prompt.ShowDialog("Бренд товара:", "Обновление товара");
             if (string.IsNullOrEmpty(newBrand)) return;
 
-            string newAnimal = Prompt.ShowDialog("Введите животное:", "Обновление товара");
+            string newAnimal = Prompt.ShowDialog("Животное:", "Обновление товара");
             if (string.IsNullOrEmpty(newAnimal)) return;
 
-            string newDescription = Prompt.ShowDialog("Введите описание товара:", "Обновление товара");
+            string newDescription = Prompt.ShowDialog("Описание товара:", "Обновление товара");
             if (string.IsNullOrEmpty(newDescription)) return;
 
-            string newComposition = Prompt.ShowDialog("Введите состав товара:", "Обновление товара");
+            string newComposition = Prompt.ShowDialog("Состав товара:", "Обновление товара");
             if (string.IsNullOrEmpty(newComposition)) return;
 
-            string newUnit = Prompt.ShowDialog("Введите единицу измерения:", "Обновление товара");
+            string newUnit = Prompt.ShowDialog("Единицу измерения:", "Обновление товара");
             if (string.IsNullOrEmpty(newUnit)) return;
 
             decimal newPrice;
-            if (!decimal.TryParse(Prompt.ShowDialog("Введите стоимость товара:", "Обновление товара"), out newPrice))
+            if (!decimal.TryParse(Prompt.ShowDialog("Стоимость товара:", "Обновление товара"), out newPrice))
             {
                 MessageBox.Show("Некорректная стоимость.");
                 return;
             }
 
             int newQuantity;
-            if (!int.TryParse(Prompt.ShowDialog("Введите количество на складе:", "Обновление товара"), out newQuantity))
+            if (!int.TryParse(Prompt.ShowDialog("Количество на складе:", "Обновление товара"), out newQuantity))
             {
                 MessageBox.Show("Некорректное количество.");
                 return;
@@ -278,5 +279,6 @@ namespace PetStoreApp
                 return textBox.Text;
             }
         }
+
     }
 }

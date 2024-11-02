@@ -63,9 +63,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(254, 234);
+            this.button1.Location = new System.Drawing.Point(48, 243);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 55);
+            this.button1.Size = new System.Drawing.Size(220, 55);
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить товар";
             this.button1.UseVisualStyleBackColor = false;
@@ -92,7 +92,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(678, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 150);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -216,9 +216,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(254, 304);
+            this.button2.Location = new System.Drawing.Point(280, 243);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 55);
+            this.button2.Size = new System.Drawing.Size(220, 55);
             this.button2.TabIndex = 2;
             this.button2.Text = "Удалить товар";
             this.button2.UseVisualStyleBackColor = false;
@@ -228,11 +228,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(254, 448);
+            this.button3.Location = new System.Drawing.Point(280, 351);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(210, 55);
+            this.button3.Size = new System.Drawing.Size(220, 55);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Обновить данные";
+            this.button3.Text = "Сохранить изменения";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -240,11 +240,11 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(254, 374);
+            this.button4.Location = new System.Drawing.Point(515, 243);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(210, 55);
+            this.button4.Size = new System.Drawing.Size(220, 55);
             this.button4.TabIndex = 4;
-            this.button4.Text = "Сохранить ";
+            this.button4.Text = "Обновить данные";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -262,7 +262,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 532);
+            this.BackColor = System.Drawing.Color.Ivory;
+            this.ClientSize = new System.Drawing.Size(821, 451);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

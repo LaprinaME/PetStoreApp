@@ -186,6 +186,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PetStoreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterForm.cs">
@@ -249,6 +264,39 @@
     </None>
     <None Include="PetStoreDataSet1.xss">
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet2.xsc">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet2.xss">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsc">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet3.xss">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet4.xsc">
+      <DependentUpon>PetStoreDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet4.xss">
+      <DependentUpon>PetStoreDataSet4.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

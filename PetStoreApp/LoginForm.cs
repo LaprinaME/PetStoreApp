@@ -34,6 +34,15 @@ namespace PetStoreApp
         {
             // Дополнительные настройки могут быть добавлены здесь
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // код обработки
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            // код обработки
+        }
 
         // Кнопка для входа
         private void button1_Click(object sender, EventArgs e)
